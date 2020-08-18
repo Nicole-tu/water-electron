@@ -4,7 +4,9 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": "https://github.com/Nicole-tu/water-electron.git",
   "keywords": [
@@ -17,6 +19,23 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^9.2.0"
+    "electron": "^9.2.0",
+    "electron-builder": "^22.8.0"
+  },
+  "build": {
+    "appId": "com.cilent.app.electronbuild",
+    "productName": "electron-build",
+    "directories": {
+      "output": "build"
+    },
+    "mac": {
+      "icon": "icons/Mushroom.ico"
+    },
+    "win": {
+      "icon": "icons/Mushroom.ico"
+    },
+    "linux": {
+      "icon": "icons/Mushroom.ico"
+    }
   }
 }
