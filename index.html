@@ -4,19 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <title>Water Records</title>
 </head>
 
 <body>
-  <h1>Water Records</h1>
-  We are using Node.js <span id="node-version"></span>,
-  Chromium <span id="chrome-version"></span>,
-  and Electron <span id="electron-version"></span>.
+  <div class="input-area">
+    <h1>Water Records</h1>
+    <span>
+      Leave your info:
+      <ul>
+        <li>
+          age: <input id="age" type="number">
+        </li>
+        <li>
+          weight: <input id="weight" type="number">
+        </li>
+      </ul>
+    </span>
+    <button id="calAmount" onclick="calculateAmount()">Calculate</button>
+  </div>
+  <hr />
+  <div class="result-area">
+    <span>
+      You need to drink <input id="totalAmount" type="number" disabled /> c.c. water per day.
+    </span>
+  </div>
+  <button id="calAmount" onclick="addWater()">Add Water</button>
+  <div class="cup-area">
+    <div class="cont">
+      <div class="cup">
+        <div class="water"></div>
+      </div>
+    </div>
+  </div>
 
-  <!-- You can also require other files to run in this process -->
-  <script src="./renderer.js"></script>
 </body>
+<!-- You can also require other files to run in this process -->
+<script src="./renderer.js"></script>
 
 </html>

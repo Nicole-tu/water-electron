@@ -1,0 +1,153 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+/* body {
+  background: skyblue;
+} */
+
+ul {
+  list-style: none;
+}
+
+input {
+  width: 30%;
+  font-size: 1.5rem;
+  border: none;
+  border-bottom: 1px solid grey;
+  text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.cup-area {
+  background: skyblue;
+  height: 400px;
+  width: 100%;
+  margin: auto;
+}
+
+.cont {
+  height: 300px;
+  width: 300px;
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cup {
+  position: absolute;
+  bottom: 0;
+  left: 70px;
+  width: 100px;
+  height: 160px;
+  background: RGBa(255, 255, 255, 0.3);
+}
+
+.cup::before,
+.cup::after {
+  height: 100%;
+  content: "";
+  width: 20px;
+  background: #abddf1;
+  position: absolute;
+  display: block;
+}
+
+.cup::before {
+  left: -10px;
+  transform: skewx(5deg);
+}
+
+.cup::after {
+  right: -10px;
+  transform: skewx(-5deg);
+}
+
+.cup .water {
+  background: #5c94d3;
+  /* height: 100%; */
+  position: absolute;
+  z-index: 1;
+  width: 80%;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+}
+
+.cup .water::before,
+.cup .water::after {
+  content: "";
+  width: 20px;
+  background: #5c94d3;
+  position: absolute;
+  display: block;
+}
+.cup .water::before {
+  left: -10px;
+  transform: skewx(5deg);
+}
+
+.cup .water::after {
+  right: -10px;
+  transform: skewx(-5deg);
+}
+
+.water-full {
+  animation: addWater 5s infinite linear alternate;
+  animation-play-state: paused;
+}
+
+.water-full::before,
+.water-full::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 0;
+  left: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 38%;
+  transform: translate(-50%, -70%) rotate(0);
+  animation: waterWave 6s linear infinite;
+  z-index: 10;
+}
+
+.water-full::after {
+  border-radius: 48%;
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translate(-50%, -70%) rotate(0);
+  animation: waterWave 10s linear -5s infinite;
+  z-index: 20;
+}
+
+@keyframes waterWave {
+  50% {
+    transform: translate(-50%, -73%) rotate(180deg);
+  }
+  100% {
+    transform: translate(-50%, -70%) rotate(360deg);
+  }
+}
+@keyframes addWater {
+  0% {
+    height: 100px;
+  }
+  100% {
+    height: 400px;
+  }
+}
+
+.water-full.active {
+  animation-play-state: running;
+}
