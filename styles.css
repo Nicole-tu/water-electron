@@ -17,6 +17,7 @@ input {
   border: none;
   border-bottom: 1px solid grey;
   text-align: right;
+  outline: none;
 }
 
 input::-webkit-outer-spin-button,
@@ -29,125 +30,125 @@ input[type="number"] {
 }
 
 .cup-area {
-  background: skyblue;
-  height: 400px;
+  height: 500px;
+  margin: 0 auto;
   width: 100%;
-  margin: auto;
+  background: black;
 }
 
-.cont {
-  height: 300px;
-  width: 300px;
-  border-radius: 4px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
+/** pint glass **/
 .cup {
-  position: absolute;
-  bottom: 0;
-  left: 70px;
-  width: 100px;
-  height: 160px;
-  background: RGBa(255, 255, 255, 0.3);
+  height: 200px;
+  width: 130px;
+  top: 45%;
+  left: 35%;
+  border-bottom: 15px solid #fff;
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 7px/45px;
 }
 
-.cup::before,
-.cup::after {
-  height: 100%;
+.cup:after {
   content: "";
-  width: 20px;
-  background: #abddf1;
+  width: 15px;
   position: absolute;
-  display: block;
+  top: -10px;
+  right: -11px;
+  bottom: -1px;
+  background-color: #fff;
+  transform: skew(-7deg);
+  border-radius: 7px 7px 0 0;
 }
 
-.cup::before {
-  left: -10px;
-  transform: skewx(5deg);
-}
-
-.cup::after {
-  right: -10px;
-  transform: skewx(-5deg);
-}
-
-.cup .water {
-  background: #5c94d3;
-  /* height: 100%; */
+.cup:before {
+  content: "";
+  width: 15px;
   position: absolute;
+  top: -10px;
+  left: -11px;
+  bottom: -1px;
+  background-color: #fff;
+  transform: skew(7deg);
   z-index: 1;
-  width: 80%;
-  left: 50%;
-  bottom: 10px;
-  transform: translateX(-50%);
+  border-radius: 7px 7px 0 0;
 }
 
-.cup .water::before,
-.cup .water::after {
-  content: "";
-  width: 20px;
-  background: #5c94d3;
+.wave {
+  width: 100%;
+  height: 0%;
+  bottom: -4%;
   position: absolute;
-  display: block;
-}
-.cup .water::before {
-  left: -10px;
-  transform: skewx(5deg);
+  background: #9cc6ff;
+  border-radius: 0 0 40px 40px;
+  box-shadow: inset 0 0 50px rgb(50, 81, 185);
 }
 
-.cup .water::after {
-  right: -10px;
-  transform: skewx(-5deg);
-}
-
-.water-full {
-  animation: addWater 5s infinite linear alternate;
-  animation-play-state: paused;
-}
-
-.water-full::before,
-.water-full::after {
+.wave-in:before,
+.wave-in:after {
   content: "";
   position: absolute;
-  width: 400px;
-  height: 400px;
-  top: 0;
+  width: 130%;
+  height: 100%;
+  top: 10%;
   left: 50%;
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 38%;
-  transform: translate(-50%, -70%) rotate(0);
-  animation: waterWave 6s linear infinite;
-  z-index: 10;
+  transform: translate(-50%, -75%);
+  background: #000;
 }
 
-.water-full::after {
-  border-radius: 48%;
-  background-color: rgba(255, 255, 255, 0.9);
-  transform: translate(-50%, -70%) rotate(0);
-  animation: waterWave 10s linear -5s infinite;
-  z-index: 20;
+.wave-in:before {
+  border-radius: 45%;
+  background: black;
+  animation: animate 10s linear infinite;
 }
 
-@keyframes waterWave {
+.wave-in:after {
+  border-radius: 40%;
+  background: rgba(0, 0, 0, 0.5);
+  animation: animate 5s linear infinite;
+}
+
+/*刻度*/
+.bobble {
+  position: absolute;
+  background: white;
+  top: 50%;
+  left: -5%;
+  width: 50px;
+  height: 10px;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+.bobble::before {
+  content: "";
+  position: absolute;
+  background: white;
+  left: 10px;
+  top: 500%;
+  width: 40px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+.bobble::after {
+  content: "";
+  position: absolute;
+  background: white;
+  left: 0px;
+  top: -500%;
+  width: 50px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -70%) rotate(0deg);
+  }
   50% {
     transform: translate(-50%, -73%) rotate(180deg);
   }
   100% {
-    transform: translate(-50%, -70%) rotate(360deg);
+    transform: translate(-50%, -75%) rotate(360deg);
   }
-}
-@keyframes addWater {
-  0% {
-    height: 100px;
-  }
-  100% {
-    height: 400px;
-  }
-}
-
-.water-full.active {
-  animation-play-state: running;
 }

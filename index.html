@@ -6,6 +6,8 @@
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
   <title>Water Records</title>
 </head>
 
@@ -31,12 +33,12 @@
       You need to drink <input id="totalAmount" type="number" disabled /> c.c. water per day.
     </span>
   </div>
-  <button id="calAmount" onclick="addWater()">Add Water</button>
+  <button id="calAmount" onclick="addWater(5)">Add Water</button>
+
   <div class="cup-area">
-    <div class="cont">
-      <div class="cup">
-        <div class="water"></div>
-      </div>
+    <div class="cup">
+      <div class="bobble"></div>
+      <div class="wave"></div>
     </div>
   </div>
 
