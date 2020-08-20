@@ -2,6 +2,8 @@
 
 A little application to record water
 
+計算每日所需喝的水量
+
 ```bash
 # Clone this repository
 git clone https://github.com/Nicole-tu/water-electron.git
