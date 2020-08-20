@@ -1,0 +1,154 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+/* body {
+  background: skyblue;
+} */
+
+ul {
+  list-style: none;
+}
+
+input {
+  width: 30%;
+  font-size: 1.5rem;
+  border: none;
+  border-bottom: 1px solid grey;
+  text-align: right;
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.cup-area {
+  height: 500px;
+  margin: 0 auto;
+  width: 100%;
+  background: black;
+}
+
+/** pint glass **/
+.cup {
+  height: 200px;
+  width: 130px;
+  top: 45%;
+  left: 35%;
+  border-bottom: 15px solid #fff;
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 7px/45px;
+}
+
+.cup:after {
+  content: "";
+  width: 15px;
+  position: absolute;
+  top: -10px;
+  right: -11px;
+  bottom: -1px;
+  background-color: #fff;
+  transform: skew(-7deg);
+  border-radius: 7px 7px 0 0;
+}
+
+.cup:before {
+  content: "";
+  width: 15px;
+  position: absolute;
+  top: -10px;
+  left: -11px;
+  bottom: -1px;
+  background-color: #fff;
+  transform: skew(7deg);
+  z-index: 1;
+  border-radius: 7px 7px 0 0;
+}
+
+.wave {
+  width: 100%;
+  height: 0%;
+  bottom: -4%;
+  position: absolute;
+  background: #9cc6ff;
+  border-radius: 0 0 40px 40px;
+  box-shadow: inset 0 0 50px rgb(50, 81, 185);
+}
+
+.wave-in:before,
+.wave-in:after {
+  content: "";
+  position: absolute;
+  width: 130%;
+  height: 100%;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  background: #000;
+}
+
+.wave-in:before {
+  border-radius: 45%;
+  background: black;
+  animation: animate 10s linear infinite;
+}
+
+.wave-in:after {
+  border-radius: 40%;
+  background: rgba(0, 0, 0, 0.5);
+  animation: animate 5s linear infinite;
+}
+
+/*刻度*/
+.bobble {
+  position: absolute;
+  background: white;
+  top: 50%;
+  left: -5%;
+  width: 50px;
+  height: 10px;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+.bobble::before {
+  content: "";
+  position: absolute;
+  background: white;
+  left: 10px;
+  top: 500%;
+  width: 40px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+.bobble::after {
+  content: "";
+  position: absolute;
+  background: white;
+  left: 0px;
+  top: -500%;
+  width: 50px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -70%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -73%) rotate(180deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}

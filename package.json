@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder --dir",
+    "pack": "electron-builder --dir --icon=water.ico",
     "dist": "electron-builder"
   },
   "repository": "https://github.com/Nicole-tu/water-electron.git",
@@ -20,22 +20,27 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^9.2.0",
-    "electron-builder": "^22.8.0"
+    "electron-builder": "^22.8.0",
+    "electron-notifications": "^1.0.0",
+    "node-notifier": "^8.0.0"
   },
   "build": {
-    "appId": "com.cilent.app.electronbuild",
-    "productName": "electron-build",
+    "appId": "com.nicole-tu.water-reminder",
+    "productName": "Water Reminder",
     "directories": {
       "output": "build"
     },
     "mac": {
-      "icon": "icons/Mushroom.ico"
+      "target": "default",
+      "icon": "water.ico"
     },
     "win": {
-      "icon": "icons/Mushroom.ico"
+      "target": "nsis",
+      "icon": "water.ico"
     },
     "linux": {
-      "icon": "icons/Mushroom.ico"
+      "target": "AppImage",
+      "icon": "water.ico"
     }
   }
 }
